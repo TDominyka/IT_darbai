@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		var notFound=0;
+		$(document).ready(function(){
+			$(".btn").click(function(){
+				//if(!$("#file_content").text()){
+					$("#file_content").load($("#file_name").val()+".txt",function(){
+						if(!$("#file_content").text()){notFound++;}
+					});
+				//}
+				$("#file_content").load($("#file_name").val()+".html", function(){
+					if(!$("#file_content").text()){notFound++;}
+				});
+				
+			});
+			$(document).ajaxComplete(function(){
+				if(notFound>=2){
+					$("#file_content").text(null);
+					$("#file_name").css("border-color","red");
+					notFound=0;
+				}
+			});
+			$("#file_name").keyup(function(){
+				$("#file_content").text(null);
+				$("#file_name").css("border-color","#512268");
+			});
+		});
+		</script>
+		<link rel="stylesheet" href="style.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="header">
+			<h1>Saulės Gėlytės rankdarbių krautuvėlė</h1>
+		</div>
+		<div class="navBar">
+			<h3><a href="index.html">pradinis</a></h3>
+			<h3><a href="registracija.html">registracija</a></h3>
+			<h3><a href="dokumentacija.html">dokumentacija</a></h3>
+		</div>
+		<div class="content">
+			<div class="mainBody">
+				<div class=news>
+					<h2>Failų paieška</h2>
+					<p id="hint"><strong>Pasiūlymai:</strong></p>
+					<form method=POST>
+						<label name="file_name"><strong>Failo vardas:</strong></label>
+  						<input type="text" id="file_name" name="file_name" placeholder="pvz.: manofailas"><br><br>
+						
+					</form>
+					<a class="btn">Gauti failo turinį</a>
+					<p><strong>Pasirinkto failo turinys:</strong></p>
+					<div id="file_content"></div>
+				</div>
+			</div>
+			<div class="sideBar">
+				
+				<h2>Kontaktai</h2>
+				<p>Saulė Gėlytė<br>Tel. nr: 861234567<br> Adresas: Pušų al. 7</p>
+				<br>
+				<h2>Naudingos nuorodos:</h2>
+				<p><a href="http://www.google.com">google</a><br><a href="http://www.vu.lt">vu.lt</a></p>
+				
+			</div>
+		</div>
+		<div class="footer">
+			<p>Tinklalapis kuriamas mokymosi tikslais<p>
+		</div>
+	</body>
+</html>
+

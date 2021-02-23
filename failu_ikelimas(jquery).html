@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		
+			$(document).on("click", ".add_directory", function(){
+				let branch=$(this).parent().attr("name")+"/"+$(this).prev().val();
+				let failas=branch+"_failas";
+				$(this).parent().append(
+					'<div id="root" name='+branch+' title='+branch+'> \
+  						<label for="myfile">Pasirinkite failus kėlimui į direktoriją '+branch+':</label> \
+						<a class="btn add_file">+</a> \
+						<label for="directory_name">Naujo aplanko pavadinimas:</label> \
+  						<input type="text" placeholder="pvz.: root"> \
+						<a class="btn add_directory">Sukurti</a><br> \
+						<div id='+failas+'> \
+  							<input type="file" class="my_file" name="myfile"><br><br> \
+						</div> \
+					</div>');
+			});
+			$(document).on("click", ".add_file", function(){
+				let failas=directory_name+"_failas";
+				$(this).siblings("div").append($(this).siblings("div").children().eq(0).clone(false));
+				$(this).siblings("div").append('<br><br>' );
+			});
+			$("#file_name").keyup(function(){
+				$("#file_content").text(null);
+				$("#file_name").css("border-color","#512268");
+			});
+		</script>
+		<link rel="stylesheet" href="style.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="header">
+			<h1>Saulės Gėlytės rankdarbių krautuvėlė</h1>
+		</div>
+		<div class="navBar">
+			<h3><a href="index.html">pradinis</a></h3>
+			<h3><a href="registracija.html">registracija</a></h3>
+			<h3><a href="dokumentacija.html">dokumentacija</a></h3>
+		</div>
+		<div class="content">
+			<div class="mainBody">
+				<div class=news>
+					<h2>Registracija konsultacijai</h2>
+				
+					<form method=POST>
+						
+						<div id="root" name="root" title="root">
+  							<label for="myfile">Pasirinkite failus kėlimui į direktoriją root:</label>
+							<a class="btn add_file">+</a>
+							<label for="directory_name">Naujo aplanko pavadinimas:</label>
+  							<input type="text" id="directory_name" name="directory_name" placeholder="pvz.: root">
+							<a class="btn add_directory">Sukurti</a><br>
+							<div id="root_failas">
+  								<input type="file" id="myfile" name="myfile"><br><br>
+							</div>
+						</div>
+						
+  						<input type="submit" value="Pateikti">
+					</form>
+				</div>
+			</div>
+			<div class="sideBar">
+				
+				<h2>Kontaktai</h2>
+				<p>Saulė Gėlytė<br>Tel. nr: 861234567<br> Adresas: Pušų al. 7</p>
+				<br>
+				<h2>Naudingos nuorodos:</h2>
+				<p><a href="http://www.google.com">google</a><br><a href="http://www.vu.lt">vu.lt</a></p>
+				
+			</div>
+		</div>
+		<div class="footer">
+			<p>Tinklalapis kuriamas mokymosi tikslais<p>
+		</div>
+	</body>
+</html>
+

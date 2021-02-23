@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<script type="text/javascript" src="failu_ikelimas.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="header">
+			<h1>Saulės Gėlytės rankdarbių krautuvėlė</h1>
+		</div>
+		<div class="navBar">
+			<h3><a href="index.html">pradinis</a></h3>
+			<h3><a href="registracija.html">registracija</a></h3>
+			<h3><a href="dokumentacija.html">dokumentacija</a></h3>
+		</div>
+		<div class="content">
+			<div class="mainBody">
+				<div class=news>
+					<h2>Registracija konsultacijai</h2>
+				
+					<form method=POST>
+						
+						<div id="root" name="root" title="root">
+  							<label for="myfile">Pasirinkite failus kėlimui į direktoriją root:</label>
+							<a class="btn" onclick=add_file("root")>+</a>
+							<!--<a class="btn" onclick=add_internal_directory("root")>Sukurti vidini aplanka</a><br>-->
+							<label for="directory_name">Naujo aplanko pavadinimas:</label>
+  							<input type="text" id="directory_name" name="directory_name" placeholder="pvz.: root">
+							<a class="btn" onclick="add_internal_directory('root', document.getElementById('directory_name').value)">Sukurti</a><br>
+							<div id="root_failas">
+  								<input type="file" id="myfile" name="myfile"><br><br>
+							</div>
+						</div>
+						
+  						<input type="submit" value="Pateikti">
+					</form>
+				</div>
+			</div>
+			<div class="sideBar">
+				
+				<h2>Kontaktai</h2>
+				<p>Saulė Gėlytė<br>Tel. nr: 861234567<br> Adresas: Pušų al. 7</p>
+				<br>
+				<h2>Naudingos nuorodos:</h2>
+				<p><a href="http://www.google.com">google</a><br><a href="http://www.vu.lt">vu.lt</a></p>
+				
+			</div>
+		</div>
+		<div class="footer">
+			<p>Tinklalapis kuriamas mokymosi tikslais<p>
+		</div>
+	</body>
+</html>
+
